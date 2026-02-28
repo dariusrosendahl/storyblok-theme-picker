@@ -102,7 +102,7 @@ The plugin UI uses CSS custom properties. Override them to customize the look:
 :root {
   --stp-chip-bg: #f5f5f5;           /* Chip background */
   --stp-chip-bg-selected: #ffffff;   /* Selected chip background */
-  --stp-chip-border: transparent;    /* Chip border (unselected) */
+  --stp-chip-border: #e2e2e2;        /* Chip border (unselected) */
   --stp-chip-border-selected: #1B243F; /* Chip border (selected) */
   --stp-chip-radius: 999px;         /* Chip border radius */
   --stp-chip-padding: 4px 12px 4px 8px; /* Chip padding */

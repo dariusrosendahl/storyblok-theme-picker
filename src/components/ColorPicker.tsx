@@ -44,10 +44,7 @@ const ColorPicker: FunctionComponent<ColorPickerProps> = ({
                 : 'var(--stp-chip-bg, #f5f5f5)',
               borderColor: isSelected
                 ? 'var(--stp-chip-border-selected, #1B243F)'
-                : 'var(--stp-chip-border, transparent)',
-              boxShadow: isSelected
-                ? '0 0 0 1px var(--stp-chip-border-selected, #1B243F)'
-                : 'none',
+                : 'var(--stp-chip-border, #e2e2e2)',
             }}
           >
             <span
@@ -80,7 +77,7 @@ const chipStyle: React.CSSProperties = {
   gap: 'var(--stp-chip-gap, 6px)',
   padding: 'var(--stp-chip-padding, 4px 12px 4px 8px)',
   borderRadius: 'var(--stp-chip-radius, 999px)',
-  border: '1.5px solid',
+  border: '2px solid',
   cursor: 'pointer',
   fontFamily: 'inherit',
   fontSize: 'var(--stp-label-size, 13px)',

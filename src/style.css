@@ -9,7 +9,7 @@ html {
   /* Plugin theming variables — override these to customize */
   --stp-chip-bg: #f5f5f5;
   --stp-chip-bg-selected: #ffffff;
-  --stp-chip-border: transparent;
+  --stp-chip-border: #e2e2e2;
   --stp-chip-border-selected: #1b243f;
   --stp-chip-radius: 999px;
   --stp-chip-padding: 4px 12px 4px 8px;
