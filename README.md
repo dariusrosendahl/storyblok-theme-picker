@@ -1,6 +1,9 @@
 # Storyblok Theme Picker Field Plugin
 
-A visual theme picker field plugin for [Storyblok](https://www.storyblok.com/). Replaces plain text dropdowns with colored chips for an intuitive editing experience.
+<table><tr>
+<td><img src="assets/icon.png" alt="Theme Picker icon" width="64" /></td>
+<td>A visual theme picker field plugin for <a href="https://www.storyblok.com/">Storyblok</a>. Replaces plain text dropdowns with colored chips for an intuitive editing experience.</td>
+</tr></table>
 
 <img src="assets/screenshot1.png" alt="Screenshot — background theme options" width="400" />
 <img src="assets/screenshot2.png" alt="Screenshot — button theme options" width="400" />
