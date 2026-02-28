@@ -19,7 +19,15 @@
 
 ## Installation
 
-### Deploy to Storyblok
+### Install from Storyblok
+
+Install directly into your space via the Partner Portal:
+
+**[Install Theme Picker](https://app.storyblok.com/#!/install/doordarius@theme-picker)**
+
+### Self-hosted
+
+If you prefer to host your own version:
 
 1. Clone the repo and install dependencies:
 
