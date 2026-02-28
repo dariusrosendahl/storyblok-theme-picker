@@ -1,74 +1,120 @@
-# Storyblok Field Plugin in React
+# Storyblok Theme Picker Field Plugin
 
-This React project is designed to function as a Storyblok field plugin application. It showcases some fundamental features for field plugins, including value updates, modal toggling, and asset selection. The primary goal of this starter is to provide developers with a clear blueprint for creating custom field plugins.
+A visual theme picker field plugin for [Storyblok](https://www.storyblok.com/). Replaces plain text dropdowns with colored chips for an intuitive editing experience.
 
-To remove the example code, simply delete the `src/components/` directory and alter the imports and returned `JSX` in `src/App.tsx`.
-
-For those who prefer to work with JavaScript instead of TypeScript, they can rename src/App.tsx to src/App.jsx.
-
-## Usage
-
-For development, run the application locally with
-
-```shell
-npm run dev
+```
+┌──────────────────────────────────────┐
+│  [● Roze]  [● Crème]  [● Wit]       │
+└──────────────────────────────────────┘
 ```
 
-and open the [Sandbox](https://plugin-sandbox.storyblok.com/field-plugin/).
+## Features
 
-To build the project, run
+- Horizontal chip row with colored circles and labels
+- Visual selected state (ring highlight)
+- Light color detection — white/light colors get a subtle border so they remain visible
+- Fully generic — all options come from field config JSON, nothing is hardcoded
+- CSS custom properties for easy theming of the plugin UI
+- Stores a single string value (backward-compatible with existing "Single Option" fields)
 
-```shell
-npm run build
+## Installation
+
+### Deploy to Storyblok
+
+1. Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/dariusrosendahl/storyblok-theme-picker.git
+cd storyblok-theme-picker
+pnpm install
 ```
 
-Deploy the field plugin with the CLI. Issue a [personal access token](https://app.storyblok.com/#/me/account?tab=token), rename `.env.local.example` to `.env.example`, open the file, set the value `STORYBLOK_PERSONAL_ACCESS_TOKEN`, and run
+2. Create a `.env.local` file with your Storyblok personal access token:
 
-```shell
-npm run deploy
+```bash
+cp .env.local.example .env.local
+# Edit .env.local and set STORYBLOK_PERSONAL_ACCESS_TOKEN
 ```
 
-## Manifest File for Field Plugins
+3. Build and deploy:
 
-The manifest file is a configuration that enhances the functionality of your field plugin. This JSON file, named `field-plugin.config.json` and located in your project's root folder, is optional but highly recommended.
+```bash
+pnpm run deploy
+```
 
-The manifest file allows you to configure [options](https://www.storyblok.com/docs/plugins/field-plugins/introduction#options) for your field plugin. When developing your field plugin with the [Sandbox](https://plugin-sandbox.storyblok.com/field-plugin/), the options are applied by default. Also, the deploy command automatically applies the options in production. So, you no longer need to configure the options manually.
+### Configure a Field
 
-### Configuring a Manifest File
-
-The options list within the file `field-plugin.config.json` should consist of key-value objects representing the essential options required for your field plugin to function correctly, along with their corresponding values. This is an example of how it should be structured:
+In Storyblok, change a field type to use this plugin and add an `options` key in the field's plugin options containing a JSON array:
 
 ```json
-{
-  "options": [
-    {
-      "name": "myPluginInitialValue",
-      "value": 100
-    }
-  ]
+[
+  { "value": "bg-primary", "label": "Roze", "color": "#F9A8D4" },
+  { "value": "bg-cream", "label": "Crème", "color": "#FDF8F0" },
+  { "value": "bg-white", "label": "Wit", "color": "#FFFFFF" }
+]
+```
+
+Each option has:
+
+| Property | Description |
+|----------|-------------|
+| `value` | The string stored in Storyblok (e.g. `"bg-primary"`) |
+| `label` | Display label shown next to the color circle |
+| `color` | Hex color for the circle (e.g. `"#F9A8D4"`) |
+
+## Example Configurations
+
+### Background themes
+
+```json
+[
+  { "value": "bg-primary", "label": "Roze", "color": "#F9A8D4" },
+  { "value": "bg-cream", "label": "Crème", "color": "#FDF8F0" },
+  { "value": "bg-white", "label": "Wit", "color": "#FFFFFF" },
+  { "value": "bg-dark", "label": "Donker", "color": "#1B243F" }
+]
+```
+
+### Button themes
+
+```json
+[
+  { "value": "btn-primary", "label": "Primary", "color": "#EC4899" },
+  { "value": "btn-outline", "label": "Outline", "color": "#FFFFFF" },
+  { "value": "btn-dark", "label": "Dark", "color": "#1B243F" }
+]
+```
+
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Then open the [Storyblok Sandbox](https://plugin-sandbox.storyblok.com/field-plugin/) to preview the plugin. The sandbox options are loaded from `field-plugin.config.json`.
+
+## Theming
+
+The plugin UI uses CSS custom properties. Override them to customize the look:
+
+```css
+:root {
+  --stp-chip-bg: #f5f5f5;           /* Chip background */
+  --stp-chip-bg-selected: #ffffff;   /* Selected chip background */
+  --stp-chip-border: transparent;    /* Chip border (unselected) */
+  --stp-chip-border-selected: #1B243F; /* Chip border (selected) */
+  --stp-chip-radius: 999px;         /* Chip border radius */
+  --stp-chip-padding: 4px 12px 4px 8px; /* Chip padding */
+  --stp-chip-gap: 6px;              /* Gap between circle and label */
+  --stp-circle-size: 16px;          /* Color circle diameter */
+  --stp-circle-border: #dddddd;     /* Border for light colors */
+  --stp-label-color: #1B243F;       /* Label text color */
+  --stp-label-size: 13px;           /* Label font size */
+  --stp-container-gap: 8px;         /* Gap between chips */
 }
 ```
 
-Now, you just need to access these options in your code like in the example below:
+## License
 
-```js
-const { type, data, actions } = useFieldPlugin()
-
-console.log(data.options.myPluginInitialValue)
-```
-
-## Clean up the boilerplate
-
-To start from a blank state, remove the example component `<FieldPluginExample />` from `src/App.tsx` with `<FieldPlugin />`.
-
-## Continuous delivery
-
-Set up [continuous delivery](https://www.storyblok.com/docs/plugins/field-plugins/continuous-delivery) with the CLI. Define an environmental variable `STORYBLOK_PERSONAL_ACCESS_TOKEN`, and use the `--name` and `--skipPrompts` options as such:
-
-```shell
-npm run deploy --name $NAME --skipPrompts
-```
-
-## Design system
-
-[@storyblok/mui](https://www.npmjs.com/package/@storyblok/mui) contains components and a Storyblok theme for [MUI](https://mui.com/). To add it to this project, follow the instructions in the [README](https://github.com/storyblok/mui).
+MIT

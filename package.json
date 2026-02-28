@@ -1,7 +1,13 @@
 {
-  "name": "storyblok-color-picker",
-  "private": true,
-  "version": "0.0.0",
+  "name": "storyblok-theme-picker",
+  "version": "1.0.0",
+  "description": "A visual theme picker field plugin for Storyblok — pick colors with styled chips instead of plain dropdowns",
+  "license": "MIT",
+  "author": "Darius Rosendahl (DoorDarius)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dariusrosendahl/storyblok-theme-picker.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

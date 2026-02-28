@@ -1,32 +1,45 @@
 import { FunctionComponent } from 'react'
 import { useFieldPlugin } from '@storyblok/field-plugin/react'
+import ColorPicker, { type ColorOption } from './ColorPicker'
 
 const FieldPlugin: FunctionComponent = () => {
-  const plugin = useFieldPlugin({
-    enablePortalModal: true,
-    /*
-    The `validateContent` parameter is optional. It allows you to
-      - validate the content
-      - make changes before sending it to the Storyblok Visual Editor
-      - provide type-safety
+  const { type, data, actions } = useFieldPlugin()
 
-    // For example,
-    validateContent: (content: unknown) => {
-      if (typeof content === 'string') {
-        return {
-          content,
-        }
-      } else {
-        return {
-          content,
-          error: `content is expected to be a string (actual value: ${JSON.stringify(content)})`,
-        }
-      }
+  if (type !== 'loaded') {
+    return null
+  }
+
+  let options: ColorOption[] = []
+  try {
+    const raw = data.options?.options
+    if (typeof raw === 'string') {
+      options = JSON.parse(raw)
+    } else if (Array.isArray(raw)) {
+      options = raw
     }
-    */
-  })
+  } catch {
+    // Invalid JSON — show error
+  }
 
-  return <pre>{JSON.stringify(plugin, null, 2)}</pre>
+  if (options.length === 0) {
+    return (
+      <p style={{ margin: 0, color: '#888', fontSize: '13px' }}>
+        No color options configured. Add an <code>"options"</code> field in the
+        plugin options with a JSON array, e.g.:{' '}
+        <code>
+          {'[{"value":"bg-primary","label":"Pink","color":"#F9A8D4"}]'}
+        </code>
+      </p>
+    )
+  }
+
+  return (
+    <ColorPicker
+      options={options}
+      value={typeof data.content === 'string' ? data.content : undefined}
+      onChange={(value) => actions.setContent(value)}
+    />
+  )
 }
 
 export default FieldPlugin
