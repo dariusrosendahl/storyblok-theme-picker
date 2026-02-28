@@ -60,7 +60,8 @@ Each option has:
 |----------|-------------|
 | `value` | The string stored in Storyblok (e.g. `"bg-primary"`) |
 | `label` | Display label shown next to the color circle |
-| `color` | Hex color for the circle (e.g. `"#F9A8D4"`) |
+| `color` | Hex color for the circle background (e.g. `"#F9A8D4"`) |
+| `borderColor` | *(optional)* Hex color for the circle border — useful for outline-style options |
 
 ## Example Configurations
 
@@ -79,9 +80,10 @@ Each option has:
 
 ```json
 [
-  { "value": "btn-primary", "label": "Primary", "color": "#EC4899" },
-  { "value": "btn-outline", "label": "Outline", "color": "#FFFFFF" },
-  { "value": "btn-dark", "label": "Dark", "color": "#1B243F" }
+  { "value": "btn-primary", "label": "Roze", "color": "#F43F5E" },
+  { "value": "btn-outline", "label": "Roze outline", "color": "#FFFFFF", "borderColor": "#F43F5E" },
+  { "value": "btn-white", "label": "Wit", "color": "#FFFFFF" },
+  { "value": "btn-white-outline", "label": "Wit outline", "color": "#FFFFFF", "borderColor": "#CCCCCC" }
 ]
 ```
 

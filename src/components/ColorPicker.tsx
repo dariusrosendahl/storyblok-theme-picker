@@ -4,6 +4,7 @@ export interface ColorOption {
   value: string
   label: string
   color: string
+  borderColor?: string
 }
 
 interface ColorPickerProps {
@@ -51,9 +52,11 @@ const ColorPicker: FunctionComponent<ColorPickerProps> = ({
               style={{
                 ...circleStyle,
                 backgroundColor: option.color,
-                borderColor: light
-                  ? 'var(--stp-circle-border, #dddddd)'
-                  : option.color,
+                borderColor: option.borderColor
+                  ? option.borderColor
+                  : light
+                    ? 'var(--stp-circle-border, #dddddd)'
+                    : option.color,
               }}
             />
             <span style={labelStyle}>{option.label}</span>
@@ -91,7 +94,7 @@ const circleStyle: React.CSSProperties = {
   width: 'var(--stp-circle-size, 16px)',
   height: 'var(--stp-circle-size, 16px)',
   borderRadius: '50%',
-  border: '1.5px solid',
+  border: '2px solid',
   flexShrink: 0,
 }
 
