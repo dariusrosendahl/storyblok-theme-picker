@@ -2,11 +2,8 @@
 
 A visual theme picker field plugin for [Storyblok](https://www.storyblok.com/). Replaces plain text dropdowns with colored chips for an intuitive editing experience.
 
-```
-┌──────────────────────────────────────┐
-│  [● Roze]  [● Crème]  [● Wit]       │
-└──────────────────────────────────────┘
-```
+<img src="assets/screenshot1.png" alt="Screenshot — background theme options" width="400" />
+<img src="assets/screenshot2.png" alt="Screenshot — button theme options" width="400" />
 
 ## Features
 
@@ -48,7 +45,7 @@ In Storyblok, change a field type to use this plugin and add an `options` key in
 
 ```json
 [
-  { "value": "bg-primary", "label": "Roze", "color": "#F9A8D4" },
+  { "value": "bg-primary", "label": "Roze", "color": "#D47178" },
   { "value": "bg-cream", "label": "Crème", "color": "#FDF8F0" },
   { "value": "bg-white", "label": "Wit", "color": "#FFFFFF" }
 ]
@@ -69,7 +66,7 @@ Each option has:
 
 ```json
 [
-  { "value": "bg-primary", "label": "Roze", "color": "#F9A8D4" },
+  { "value": "bg-primary", "label": "Roze", "color": "#D47178" },
   { "value": "bg-cream", "label": "Crème", "color": "#FDF8F0" },
   { "value": "bg-white", "label": "Wit", "color": "#FFFFFF" },
   { "value": "bg-dark", "label": "Donker", "color": "#1B243F" }
@@ -80,8 +77,8 @@ Each option has:
 
 ```json
 [
-  { "value": "btn-primary", "label": "Roze", "color": "#F43F5E" },
-  { "value": "btn-outline", "label": "Roze outline", "color": "#FFFFFF", "borderColor": "#F43F5E" },
+  { "value": "btn-primary", "label": "Roze", "color": "#C4547A" },
+  { "value": "btn-outline", "label": "Roze outline", "color": "#FFFFFF", "borderColor": "#C4547A" },
   { "value": "btn-white", "label": "Wit", "color": "#FFFFFF" },
   { "value": "btn-white-outline", "label": "Wit outline", "color": "#FFFFFF", "borderColor": "#CCCCCC" }
 ]

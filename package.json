@@ -15,7 +15,7 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && npx @storyblok/field-plugin-cli@latest deploy"
+    "deploy": "npm run build && npx @storyblok/field-plugin-cli@latest deploy --scope partner-portal --name storyblok-theme-picker"
   },
   "dependencies": {
     "@storyblok/field-plugin": "1.7.1",

@@ -1,5 +1,8 @@
 {
-  "options": {
-    "options": "[{\"value\":\"bg-primary\",\"label\":\"Roze\",\"color\":\"#F9A8D4\"},{\"value\":\"bg-cream\",\"label\":\"Crème\",\"color\":\"#FDF8F0\"},{\"value\":\"bg-white\",\"label\":\"Wit\",\"color\":\"#FFFFFF\"},{\"value\":\"bg-dark\",\"label\":\"Donker\",\"color\":\"#1B243F\"}]"
-  }
+  "options": [
+    {
+      "name": "options",
+      "value": "[{\"value\":\"bg-primary\",\"label\":\"Roze\",\"color\":\"#F9A8D4\"},{\"value\":\"bg-cream\",\"label\":\"Crème\",\"color\":\"#FDF8F0\"},{\"value\":\"bg-white\",\"label\":\"Wit\",\"color\":\"#FFFFFF\"},{\"value\":\"bg-dark\",\"label\":\"Donker\",\"color\":\"#1B243F\"}]"
+    }
+  ]
 }
